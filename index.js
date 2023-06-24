@@ -16,10 +16,36 @@ window.onload = function () {
 
   imgElement.style.marginLeft = `${offset}px`;
 
+  function moveLeft() {
+    let marginLeft = parseInt(imgElement.style.marginLeft);
+    let moveBy = 10;
+    let newMarginLeft;
+
+    if (marginLeft > 0) {
+      newMarginLeft = marginLeft - moveBy;
+    }
+
+    imgElement.style.marginLeft = `${newMarginLeft}px`;
+  }
+
+  function moveRight() {
+    let marginLeft = parseInt(imgElement.style.marginLeft);
+    let moveBy = 10;
+    let newMarginLeft;
+
+    if (marginLeft < boxWidth - imgWidth) {
+      newMarginLeft = marginLeft + moveBy;
+    }
+
+    imgElement.style.marginLeft = `${newMarginLeft}px`;
+  }
+
   window.addEventListener('keydown', (e) => {
       let marginLeft = parseInt(imgElement.style.marginLeft);
       let moveBy = 10;
       let newMarginLeft;
+
+
 
       if (e.key === 'ArrowLeft') {
           if (parseInt(marginLeft) > parseInt(0)) {
@@ -144,6 +170,16 @@ window.onload = function () {
           }
       }
   }, 300);
+
+  var moveLeftBtn = document.getElementById('moveLeftBtn');
+  moveLeftBtn.addEventListener('click', moveLeft);
+
+  var moveRightBtn = document.getElementById('moveRightBtn');
+  moveRightBtn.addEventListener('click', moveRight);
+
+  var shootBtn = document.getElementById('shootBtn');
+  shootBtn.addEventListener('click', launchBullet);
+
 
 };
 
