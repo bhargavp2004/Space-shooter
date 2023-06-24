@@ -1,7 +1,6 @@
 .container {
     display: flex;
     min-height: 100vh;
-    min-width: 100vh;
     justify-content: center;
     align-items: center;
 }
